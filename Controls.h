@@ -257,16 +257,11 @@ void HandleKeyPress(SDL_keysym *whatkey)
 		   l_Pressed=true;
 		   break;
 		 case SDLK_t:
-		   if(PickTri){   //toggle picking triangles/nodes
-			   PickTri=false;}
-		   else{
-			   PickTri=true;}
                    if(t_Pressed){
-                   t_Pressed=false;}
+                      t_Pressed=false;}
                    else{
-		   t_Pressed=true;}
+		      t_Pressed=true;}
 		   break;
-
 		 case SDLK_z:
 		   z_Pressed=true;
 		   break;

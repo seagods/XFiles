@@ -24,10 +24,11 @@ public:
 	void Set2(int);
 	void Set3(int);
 
-	void SetNeighb( int, int, int);
+	void SetNeighb(int, int, int); //Set all three neighbours
 	void SetNeighb(int*, int*, int*);
 
-	void SetN1(int);  //Set nodes one at a time
+//      NEIGHBOURS MUST BE SET IN ORDER!
+	void SetN1(int);  //Set neighbours one at a time
 	void SetN2(int);
 	void SetN3(int);
 
@@ -170,38 +171,37 @@ int Triangle::Get1(){
 	      return *(T);
 	}
 	      else{
-		cout << " T Null in Get1 " << endl; exit(0);
+		cout << " Node Null in Get1 " << endl; exit(0);
       } 
 }
 int Triangle::Get2(){
 	if(T){
 	      return *(T+1);}
 	      else{
-		cout << " T Null in Get2 " << endl; exit(0);
+		cout << " Node Null in Get2 " << endl; exit(0);
 	      } 
 }
 int Triangle::Get3(){
 	if(T){
 	      return *(T+2);}
 	      else{
-		cout << " T Null in Get2 " << endl; exit(0);
+		cout << " Node Null in Get2 " << endl; exit(0);
 	      } 
 }
 
 int Triangle::GetN1(){
        	if(N){return *(N);}
-		else
-	{cout << " N Null in GetN1 " << endl;} exit(0);
+	{cout << " N Null in GetN1 " << endl; exit(0);} 
 }
 int Triangle::GetN2(){
        	if(N){return *(N+1);}
 		else
-	{cout << " N Null in GetN2 " << endl;} exit(0);
+	{cout << " N Null in GetN2 " << endl; exit(0);} 
 }
 int Triangle::GetN3(){
        	if(N){return *(N+2);}
 		else
-	{cout << " N Null in GetN3 " << endl;} exit(0);
+	{cout << " N Null in GetN3 " << endl; exit(0);}
 }
 int Triangle::GetS1(){
        	if(S){return *(S);}
@@ -244,11 +244,14 @@ void Triangle::SetN1(int arg1){
 void Triangle::SetN2(int arg1){
  if(!T){ cout << "T is NULL in Triangle::SetN2 " << endl; exit(0);}
  if(!N)N=new int[3];  
+ *N=-999999;
  *(N+1) = arg1;
 }
 void Triangle::SetN3(int arg1){
  if(!T){ cout << "T is NULL in Triangle::SetN3 " << endl; exit(0);}
  if(!N)N=new int[3];  
+ *N=-999999;
+ *(N+1)=-999999;
  *(N+2) = arg1;
 }
 

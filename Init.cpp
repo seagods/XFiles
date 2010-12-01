@@ -33,6 +33,7 @@ void Init(){
    char bitmap18[]="../../bitmaps/Earth1.bmp";
    char bitmap19[]="../../bitmaps/Earth2.bmp";
    char bitmap20[]="../../bitmaps/Earth3.bmp";
+   char bitmap31[]="../../bitmaps/TriBox.bmp";
 
    CreateTexture(gl_Texture,bitmap0,0);
    CreateTexture(gl_Texture,bitmap1,1);
@@ -55,6 +56,8 @@ void Init(){
    CreateTexture(gl_Texture,bitmap18,18);
    CreateTexture(gl_Texture,bitmap19,19);
    CreateTexture(gl_Texture,bitmap20,20);
+
+   CreateTexture(gl_Texture,bitmap31,31);
 
 
 
