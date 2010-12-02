@@ -1,4 +1,4 @@
-void DrawTriHits(bool draw_the_box)
+void DrawNodeHits(bool draw_the_box)
 {
 
     //
@@ -24,12 +24,11 @@ void DrawTriHits(bool draw_the_box)
 
       if(draw_the_box)OrthoMode(-1, 1, 1, -1);  //calls glOrtho (see Init.h)
 
-      // Box for three horizontal  sliders
       double w1, h1;
       double Top, Right;   // For panel
   
       w1=340./800.*2.0;
-      h1=217./600.*2.0;
+      h1=417./600.*2.0;
 
       Right=Left+w1;
       Top=Bottom+h1;
@@ -41,7 +40,7 @@ void DrawTriHits(bool draw_the_box)
       if(!draw_the_box)glPushName(1);
       glBlendFunc(GL_ONE,GL_ZERO);
       glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[31]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[32]);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
 	     glVertex2f(Left, Top); 
@@ -54,8 +53,65 @@ void DrawTriHits(bool draw_the_box)
       glEnd();
 
 
-      ostringstream oss[7];
-      string Output[7];
+      int lengthlist=NodeTris[ipicked]->GetLength();
+      ostringstream oss[lengthlist+1];
+      string Output[lengthlist+1];
+      oss[0] << "Node=" << ipicked;
+      Output[0]=oss[0].str();
+      if(draw_the_box){
+        glColor3ub(0,0,0);  //set colour  black 
+        glRasterPos2f(Left+.25, Bottom+.82);
+        font10->draw(Output[0].c_str());      
+      glColor3ub(255,255,255);  //set back colour   
+      }
+
+    int nstream=1;
+    int current_tri;
+    int i1,i2,i3;
+    bool found;
+    ListNode* Head;
+    ListNode* Tail;
+    Head=NodeTris[ipicked]->GetHead();
+    Tail=NodeTris[ipicked]->GetTail();
+    while(Head->GetNextPtr() != Tail){
+       found=false;
+       Head=Head->GetNextPtr();
+       current_tri=*Head->GetDatumPtr();
+       i1=Triangles[current_tri].Get1();
+       i2=Triangles[current_tri].Get2();
+       i3=Triangles[current_tri].Get3();
+       if(i1==ipicked){
+         found=true;
+         oss[nstream] << "is Node 1 of Triangle " << current_tri;
+         Output[nstream]=oss[nstream].str();
+       }
+       if(i2==ipicked){
+         found=true;
+         oss[nstream] << "is Node 2 of Triangle " << current_tri;
+         Output[nstream]=oss[nstream].str();
+       }
+       if(i3==ipicked){
+         found=true;
+         oss[nstream] << "is Node 3 of Triangle "  << current_tri;
+         Output[nstream]=oss[nstream].str();
+       }
+       if(!found){
+          cout << "failed in DrawNodeHits " << endl;  exit(1);}
+
+       nstream++;
+    }
+    if(draw_the_box){
+    for(int i=1; i<lengthlist+1; i++){
+        glColor3ub(0,0,0);  //set colour  black 
+        glRasterPos2f(Left+.15, Bottom+.82-i*.07);
+        font10->draw(Output[i].c_str());      
+    }
+      glColor3ub(255,255,255);  //set back colour   
+    }
+    
+      
+
+/*
 
       if(draw_the_box){
       oss[0] << ipicked;
@@ -125,10 +181,10 @@ void DrawTriHits(bool draw_the_box)
 	     glVertex2f(Left+.45, Bottom+.57); // Top right
       glEnd(); 
       if(draw_the_box){
-        glColor3ub(0,0,0);  //set colour  black
+        glColor3ub(0,0,0);  //set colour  black 
         glRasterPos2f(Left+.25+.03, Bottom+.52);
         font10->draw(Output[1].c_str());   
-      glColor3ub(255,255,255);  //set back colour  
+      glColor3ub(255,255,255);  //set back colour      
       }
 //    Node2
       glBindTexture(GL_TEXTURE_2D,gl_Texture[4]);
@@ -143,10 +199,10 @@ void DrawTriHits(bool draw_the_box)
 	     glVertex2f(Left+.45, Bottom+.49); // Top right
       glEnd(); 
       if(draw_the_box){
-        glColor3ub(0,0,0);  //set colour  black 
+        glColor3ub(0,0,0);  //set colour  black  
         glRasterPos2f(Left+.25+.03, Bottom+.44);
         font10->draw(Output[2].c_str());   
-      glColor3ub(255,255,255);  //set back colour
+      glColor3ub(255,255,255);  //set back colour        
       }
 //    Node 3
       glBindTexture(GL_TEXTURE_2D,gl_Texture[4]);
@@ -161,10 +217,10 @@ void DrawTriHits(bool draw_the_box)
 	     glVertex2f(Left+.45, Bottom+.41); // Top right
       glEnd(); 
       if(draw_the_box){
-        glColor3ub(0,0,0);  //set colour black
+        glColor3ub(0,0,0);  //set colour black 
         glRasterPos2f(Left+.25+.03, Bottom+.36);
         font10->draw(Output[3].c_str());   
-      glColor3ub(255,255,255);  //set back colour
+      glColor3ub(255,255,255);  //set back colour       
       }
 
 
@@ -184,7 +240,7 @@ void DrawTriHits(bool draw_the_box)
         glColor3ub(0,0,0);  //set colour black 
         glRasterPos2f(Left+.55+.03, Bottom+.24);
         font10->draw(Output[4].c_str());   
-      glColor3ub(255,255,255);  //set back colour 
+      glColor3ub(255,255,255);  //set back colour       
       }
 
 
@@ -204,7 +260,7 @@ void DrawTriHits(bool draw_the_box)
         glColor3ub(0,0,0);  //set colour black 
         glRasterPos2f(Left+.55+.03, Bottom+.16);
         font10->draw(Output[5].c_str());   
-      glColor3ub(255,255,255);  //set back colour 
+      glColor3ub(255,255,255);  //set back colour        
       }
 
 //    Neighbour 3
@@ -223,10 +279,12 @@ void DrawTriHits(bool draw_the_box)
         glColor3ub(0,0,0);  //set colour black 
         glRasterPos2f(Left+.55+.03, Bottom+.09);
         font10->draw(Output[6].c_str());   
-      glColor3ub(255,255,255);  //set back colour 
+      glColor3ub(255,255,255);  //set back colour        
       }
 
+
 /************************************************************************/
+
       if(!draw_the_box)glPopName();   // Box 1  popped
 
       glEnable(GL_LIGHTING);
@@ -238,12 +296,12 @@ void DrawTriHits(bool draw_the_box)
          glFlush();
          int hits=glRenderMode(GL_RENDER);
 	// cout << " number of hits =" << hits << endl;
-         ProcessTBoxHits(hits, NameBuffer );
+         ProcessNBoxHits(hits, NameBuffer );
        }
        
 }
 
-void ProcessTBoxHits(int hits, UINT  Buffer[]){
+void ProcessNBoxHits(int hits, UINT  Buffer[]){
 	 UINT* ptr_toBuffer;
 	 UINT i,j;
 	 UINT names;
