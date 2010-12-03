@@ -28,7 +28,7 @@ void DrawNodeHits(bool draw_the_box)
       double Top, Right;   // For panel
   
       w1=340./800.*2.0;
-      h1=417./600.*2.0;
+      h1=317./600.*2.0;
 
       Right=Left+w1;
       Top=Bottom+h1;

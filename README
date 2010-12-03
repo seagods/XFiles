@@ -1,1 +1,5 @@
 Collection of Headers for PlotFiles and Games.
+
+2/3 Nov, added DraTriangleHits and DrawNodeHits for Flight
+    +bitmaps for them in ../bitmaps. Also modified Init.cpp
+    to incorporate them.
