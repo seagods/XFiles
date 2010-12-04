@@ -4,7 +4,7 @@ void HandleKeyPress(SDL_keysym *whatkey)
 
              char filestring[]="screenshot.bmp";
 
-
+             bool ispick=picking;
 
              switch(whatkey->sym)
              {
@@ -158,6 +158,8 @@ void HandleKeyPress(SDL_keysym *whatkey)
 	            }
 		    break;
 		 case SDLK_F8:
+                   ispick=picking;
+                   picking=false;
 		   if(matcol==false)
 		   {
 			   matcol=true;
@@ -173,6 +175,7 @@ void HandleKeyPress(SDL_keysym *whatkey)
                            logicbox=tlogbox; movetext=tmove; flipperbox=tflip;
 		           if(hidemousecursor)SDL_ShowCursor(0);
 	            }
+                      picking=ispick;
 		    break;
 		 case SDLK_F9:
 		   if(logicbox==false)

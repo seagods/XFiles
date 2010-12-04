@@ -118,7 +118,7 @@ void DrawMatCol(bool draw_the_box)
 	     glVertex2f(Right1 , Top1); // Top right
       glEnd();
 
-      if(!draw_the_box)glPopName();   // red  box   popped
+      if(!draw_the_box)glPopName();   // red  button   popped
       //**********************************************************************
 
       //slide button green
@@ -157,7 +157,7 @@ void DrawMatCol(bool draw_the_box)
 	     if(draw_the_box)glTexCoord2f(1.0, 1.0); // Top right
 	     glVertex2f(Right2 , Top2); // Top right
       glEnd();
-      if(!draw_the_box)glPopName();   //   green box popped
+      if(!draw_the_box)glPopName();   //   green button popped
       //**********************************************************************
 
       //slide button blue
@@ -196,7 +196,7 @@ void DrawMatCol(bool draw_the_box)
 	     if(draw_the_box)glTexCoord2f(1.0, 1.0); // Top right
 	     glVertex2f(Right3 , Top3); // Top right
       glEnd();
-      if(!draw_the_box)glPopName();   //   blue box popped
+      if(!draw_the_box)glPopName();   //   blue button popped
       //**********************************************************************
 
 
@@ -219,11 +219,13 @@ void DrawMatCol(bool draw_the_box)
 	     if(draw_the_box)glTexCoord2f(1.0, 1.0); // Top right
 	     glVertex2f(Right4 , Top4); // Top right
       glEnd();
-      if(!draw_the_box)glPopName();   // Box 1  Button 4 popped
+      if(!draw_the_box)glPopName();   //   Box1 Button 4  popped
+
 
 	     if(draw_the_box){
       glBlendFunc(GL_ONE,GL_ONE);
       glBindTexture(GL_TEXTURE_2D,gl_Texture[3]);  }
+
 
       if(!draw_the_box)glPushName(38);   // Give it a name anyway
       glBegin(GL_QUADS);
@@ -236,7 +238,7 @@ void DrawMatCol(bool draw_the_box)
 	     if(draw_the_box)glTexCoord2f(1.0, 1.0); // Top right
 	     glVertex2f(Right4 , Top4); // Top right
       glEnd();
-      if(!draw_the_box)glPopName();   //   alpha box popped
+      if(!draw_the_box)glPopName();   //  alpha popped
       //**********************************************************************
 
       //**********************************************************************
@@ -299,7 +301,7 @@ void DrawMatCol(bool draw_the_box)
 
 
       //two arrow boxes for material component
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
       if(!draw_the_box)glPushName(41);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
@@ -314,7 +316,7 @@ void DrawMatCol(bool draw_the_box)
       if(!draw_the_box)glPopName();
 
 
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
       if(!draw_the_box)glPushName(42);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
@@ -345,7 +347,7 @@ void DrawMatCol(bool draw_the_box)
 
 
       //two arrow boxes for material number
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
       if(!draw_the_box)glPushName(43);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
@@ -359,7 +361,7 @@ void DrawMatCol(bool draw_the_box)
       glEnd(); 
       if(!draw_the_box)glPopName();
 
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
       if(!draw_the_box)glPushName(44);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
