@@ -216,7 +216,7 @@ void DrawLightPos(bool draw_the_box)
 
 
 
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);  //Arrows
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);  //Arrows
       if(!draw_the_box)glPushName(8);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
@@ -230,7 +230,7 @@ void DrawLightPos(bool draw_the_box)
       glEnd(); 
       if(!draw_the_box)glPopName();
 
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
       if(!draw_the_box)glPushName(9);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
