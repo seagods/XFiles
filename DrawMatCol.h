@@ -539,11 +539,11 @@ void ProcessHitsMC(int hits, UINT  Buffer[]){
 		  Bottom_TopM=BottomM+TopMMargin;
                   for(int im=0; im < imats; im++){
 			  for(int mp=0; mp < Mprops; mp++){
-		  Bottom1M[imat][mp]=Bottom_BottomM+RedMslide[imat][mp];
-		  Bottom2M[imat][mp]=Bottom_BottomM+GreenMslide[imat][mp];
-		  Bottom3M[imat][mp]=Bottom_BottomM+BlueMslide[imat][mp];
-		  Bottom4M[imat][mp]=Bottom_BottomM+AlphaMslide[imat][mp];
-		  Bottom5M[imat][mp]=Bottom_BottomM+ShineMslide[imat][mp];
+		  Bottom1M[im][mp]=Bottom_BottomM+RedMslide[im][mp];
+		  Bottom2M[im][mp]=Bottom_BottomM+GreenMslide[im][mp];
+		  Bottom3M[im][mp]=Bottom_BottomM+BlueMslide[im][mp];
+		  Bottom4M[im][mp]=Bottom_BottomM+AlphaMslide[im][mp];
+		  Bottom5M[im][mp]=Bottom_BottomM+ShineMslide[im][mp];
 			  }
 		  }
 

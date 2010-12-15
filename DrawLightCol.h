@@ -257,7 +257,7 @@ void DrawLightCol(bool draw_the_box)
 
 
       //two arrow boxes for light component
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
       if(!draw_the_box)glPushName(19);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
@@ -272,7 +272,7 @@ void DrawLightCol(bool draw_the_box)
       if(!draw_the_box)glPopName();
 
 
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
       if(!draw_the_box)glPushName(20);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
@@ -303,7 +303,7 @@ void DrawLightCol(bool draw_the_box)
 
 
       //two arrow boxes for light number
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
       if(!draw_the_box)glPushName(21);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
@@ -317,7 +317,7 @@ void DrawLightCol(bool draw_the_box)
       glEnd(); 
       if(!draw_the_box)glPopName();
 
-      glBindTexture(GL_TEXTURE_2D,gl_Texture[6]);
+      glBindTexture(GL_TEXTURE_2D,gl_Texture[5]);
       if(!draw_the_box)glPushName(22);
       glBegin(GL_QUADS);
 	     if(draw_the_box)glTexCoord2f(0.0, 1.0); //top left U,V=0,0
