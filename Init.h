@@ -55,6 +55,7 @@ if(VidInfo->blit_hw)
     SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 0);
     SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, 0);
     SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 0);
+    SDL_WM_SetCaption(WindowTitle, 0);
 }
 void SizeOpenGLScreen(const USHORT WIDTH
 		, const USHORT HEIGHT){
