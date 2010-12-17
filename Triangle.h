@@ -238,20 +238,27 @@ void Triangle::Set3(int arg1){
 
 void Triangle::SetN1(int arg1){
  if(!T){ cout << "T is NULL in Triangle::SetN1 " << endl; exit(0);}
- if(!N)N=new int[3];  
+ if(!N){
+   N=new int[3];  
+  *(N+1)=-99; *(N+2)=-99;
+  }
  *(N) = arg1;
 }
 void Triangle::SetN2(int arg1){
  if(!T){ cout << "T is NULL in Triangle::SetN2 " << endl; exit(0);}
- if(!N)N=new int[3];  
- *N=-999999;
+ if(!N){
+    N=new int[3];  
+   *N=-99; *(N+3)=-99;
+   }
  *(N+1) = arg1;
 }
 void Triangle::SetN3(int arg1){
  if(!T){ cout << "T is NULL in Triangle::SetN3 " << endl; exit(0);}
- if(!N)N=new int[3];  
- *N=-999999;
- *(N+1)=-999999;
+ if(!N){
+   N=new int[3];  
+   *N=-99;
+   *(N+1)=-99;
+  }
  *(N+2) = arg1;
 }
 

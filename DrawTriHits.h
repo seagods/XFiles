@@ -71,17 +71,17 @@ void DrawTriHits(bool draw_the_box)
       if(Triangles[ipicked].GetN1()>=0){
       oss[4] << Triangles[ipicked].GetN1();}
       else{
-      oss[4] << NULL;}
+      oss[4] << "NULL";}
 
       if(Triangles[ipicked].GetN2()>=0){
       oss[5] << Triangles[ipicked].GetN2();}
       else{
-      oss[5] << NULL;}
+      oss[5] << "NULL";}
 
       if(Triangles[ipicked].GetN3()>=0){
       oss[6] << Triangles[ipicked].GetN3();}
       else{
-      oss[6] << NULL;}
+      oss[6] << "NULL";}
       } //endif draw the box
 
 
