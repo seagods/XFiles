@@ -80,6 +80,8 @@ void DrawNodeHits(bool draw_the_box)
        i1=Triangles[current_tri].Get1();
        i2=Triangles[current_tri].Get2();
        i3=Triangles[current_tri].Get3();
+       cout << current_tri << "  p=" << 
+       ipicked << " 1,2,3=" << i1 << " " << i2 << " " << i3 << endl;
        if(i1==ipicked){
          found=true;
          oss[nstream] << "is Node 1 of Triangle " << current_tri;
@@ -96,8 +98,9 @@ void DrawNodeHits(bool draw_the_box)
          Output[nstream]=oss[nstream].str();
        }
        if(!found){
+          if(!periodic_xz){
           cout << "failed in DrawNodeHits " << endl;  exit(1);}
-
+          }
        nstream++;
     }
     if(draw_the_box){
