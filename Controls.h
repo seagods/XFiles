@@ -311,6 +311,15 @@ void HandleKeyRelease(SDL_keysym *whatkey)
 		 case SDLK_b:
 		   b_Pressed=false;
 		   break;
+		 case SDLK_c:
+		   c_Pressed=false;
+		   break;
+		 case SDLK_g:
+		   g_Pressed=false;
+		   break;
+		 case SDLK_t:
+		   t_Pressed=false;
+		   break;
 		 case SDLK_z:
 		   z_Pressed=false;
 		   break;

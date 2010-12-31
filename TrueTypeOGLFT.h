@@ -1,5 +1,5 @@
-#include "/usr/lib64/qt-3.3/include/qstring.h"
 #include "/usr/lib64/qt-3.3/include/qcolor.h"
+#include "/usr/lib64/qt-3.3/include/qstring.h"
 #include "/usr/include/oglft/OGLFT.h"
 #include <GL/glx.h>
 OGLFT::Filled*  font1;
