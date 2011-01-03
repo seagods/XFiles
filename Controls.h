@@ -5,6 +5,7 @@ void HandleKeyPress(SDL_keysym *whatkey)
              char filestring[]="screenshot.bmp";
 
              bool ispick=picking;
+             bool MSTART=MouseOn;
 
              switch(whatkey->sym)
              {
@@ -94,16 +95,17 @@ void HandleKeyPress(SDL_keysym *whatkey)
                            lightpos=false; lightcol=false, matcol=false; stylechange=false;
                            logicbox=false; movetext=false; flipperbox=false;
 			   legendplot=true;
-                           MouseOn=false;
+                     //      MouseOn=false;
 		           SDL_ShowCursor(1);
 		   }
 		   else {
 			   legendplot=false;
-                           MouseOn=true;
+                   //        MouseOn=true;
                            lightpos=tlpos; lightcol=tlcol; matcol=tmatcol; stylechange=tstyle;
                            logicbox=tlogbox; movetext=tmove; flipperbox=tflip;
 		           if(hidemousecursor)SDL_ShowCursor(0);
 	            }
+                    MouseOn=MSTART;
 		    break;
 		   case SDLK_F5:
 		   if(stylechange==false)

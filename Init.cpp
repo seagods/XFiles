@@ -257,7 +257,7 @@ void Init(){
      }
 
 
-    for(int im=0; im < nplotsmax; im++){
+    for(int im=0; im < imats ; im++){
 	     for(int mp=0; mp < Mprops; mp++){
      if(im<=10){  //ten preset colours 0-9
        RedPC1[im][mp]=RedI[im];
@@ -290,13 +290,10 @@ void Init(){
      }
 	     }
      }
-
      imat=0;
      mprop=0;
      iplot=0;
-
      testplot=-1;
-
 
 //    OK, and now for FOG!
 
@@ -313,9 +310,6 @@ void Init(){
 	glFogf(GL_FOG_END, 10000.1);	
 	glEnable(GL_FOG);	
      }
-
      glEnable( GL_LIGHTING);
-
-
 }
 

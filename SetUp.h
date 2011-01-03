@@ -145,21 +145,21 @@ double  Bottom1M[imats][Mprops], Bottom2M[imats][Mprops]
        ,Bottom3M[imats][Mprops], Bottom4M[imats][Mprops]
        ,Bottom5M[imats][Mprops];
 
-double  Bottom1PC1[nplotsmax][Mprops], Bottom2PC1[nplotsmax][Mprops]   //naughty!
-       ,Bottom3PC1[nplotsmax][Mprops];
+double  Bottom1PC1[imats][Mprops], Bottom2PC1[imats][Mprops]   
+       ,Bottom3PC1[imats][Mprops];
 
 double RedMslide[imats][Mprops],GreenMslide[imats][Mprops]
        ,BlueMslide[imats][Mprops],AlphaMslide[imats][Mprops]
        ,ShineMslide[imats][Mprops];
 
-double RedPC1slide[nplotsmax][Mprops],GreenPC1slide[nplotsmax][Mprops]
-       ,BluePC1slide[nplotsmax][Mprops];
+double RedPC1slide[imats][Mprops],GreenPC1slide[imats][Mprops]
+       ,BluePC1slide[imats][Mprops];
 
 double RedM[imats][Mprops],GreenM[imats][Mprops]
        ,BlueM[imats][Mprops],AlphaM[imats][Mprops],ShineM[imats][Mprops];
 
-double RedPC1[nplotsmax][Mprops],GreenPC1[nplotsmax][Mprops]
-       ,BluePC1[nplotsmax][Mprops],AlphaPC1[nplotsmax][Mprops],ShinePC1[nplotsmax][Mprops];
+double RedPC1[imats][Mprops],GreenPC1[imats][Mprops]
+       ,BluePC1[imats][Mprops],AlphaPC1[imats][Mprops],ShinePC1[imats][Mprops];
 
 
 

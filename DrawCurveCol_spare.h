@@ -74,12 +74,7 @@ void DrawCurveCol(bool draw_the_box)
       glEnd();
       glColor3ub(255,255,255);  //set back colour  */
 
-/*******************************************************************************/
-//       Confused?
-//       We have materials 0->imat-1
-//       each plot has a material colour
-//       we have possible slide bars for all colours
-//       The actual slide bars are of material *(ncol+iplot)
+
 /*******************************************************************************/
       //slide button red
 	     w2=30./800.*2.0;
@@ -487,7 +482,7 @@ void ProcessHitsPC1(int hits, UINT  Buffer[]){
 		  Bottom_BottomPC1=BottomPC1+BottomPC1Margin;
 		  Bottom_TopPC1=BottomPC1+TopPC1Margin;
 
-                  for(int im=0; im <= imats; im++){
+                  for(int im=0; im <= nplots; im++){
 			  for(int mp=0; mp < Mprops; mp++){
 		  Bottom1PC1[im][mp]=Bottom_BottomPC1+RedPC1slide[im][mp];
 		  Bottom2PC1[im][mp]=Bottom_BottomPC1+GreenPC1slide[im][mp];
@@ -581,18 +576,22 @@ void ProcessHitsPC1(int hits, UINT  Buffer[]){
 
 		  Bottom3PC1[*(ncol+iplot)][1]=Bottom_BottomPC1+BluePC1slide[*(ncol+iplot)][1];
 			  }
-     //      cout << "iplot=" << iplot <<  "  " << *(ncol+iplot) << endl;
+           cout << "iplot=" << iplot <<  "  " << *(ncol+iplot) << endl;
 
 
 	  if(mousedown && firstmousedown && arrow_up1){
+                  cout << "a " << iplot << " " << nplots << endl;
 		  iplot+=1;  
 		  if(iplot >= nplots)iplot=nplots-1; 
+                  cout << "b " << iplot << " " << nplots << endl;
 	          firstmousedown=false; 
                   
 	  }
 	  if(mousedown && firstmousedown && arrow_down1){
+                  cout << "c " << iplot << " " << nplots << endl;
 		  iplot-=1;
 		  if(iplot < 0)iplot=0;
+                  cout << "d " << iplot << " " << nplots << endl;
 	          firstmousedown=false;
 	  }
 	  if(mousedown && firstmousedown && arrow_up2){
