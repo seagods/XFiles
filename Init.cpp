@@ -12,29 +12,29 @@ void Init(){
    //  Image->Canvas-Size, adjust, then resize.
    //
    //  Also, just use a paintbrush in the Gimp for white edges
-   char bitmap0[]="../../bitmaps/HelpScreen.bmp";
-   char bitmap1[]="../../bitmaps/LightPos.bmp";
-   char bitmap2[]="../../bitmaps/buttonmask.bmp";
-   char bitmap3[]="../../bitmaps/button.bmp";
-   char bitmap4[]="../../bitmaps/WhiteBack.bmp";
-   char bitmap5[]="../../bitmaps/UpArrow.bmp";
-   char bitmap6[]="../../bitmaps/DownArrow.bmp";
-   char bitmap7[]="../../bitmaps/LightCol.bmp";
-   char bitmap8[]="../../bitmaps/MatCol.bmp";
-   char bitmap9[]="../../bitmaps/LogicBack.bmp";
-   char bitmap10[]="../../bitmaps/GreenCheck.bmp";
-   char bitmap11[]="../../bitmaps/RedCheck.bmp";
-   char bitmap12[]="../../bitmaps/TextMove1.bmp";
-   char bitmap13[]="../../bitmaps/LeftArrow.bmp";
-   char bitmap14[]="../../bitmaps/RightArrow.bmp";
-   char bitmap15[]="../../bitmaps/CurveMod.bmp";
-   char bitmap16[]="../../bitmaps/LegendBack.bmp";
-   char bitmap17[]="../../bitmaps/TextMove2.bmp";
-   char bitmap18[]="../../bitmaps/Earth1.bmp";
-   char bitmap19[]="../../bitmaps/Earth2.bmp";
-   char bitmap20[]="../../bitmaps/Earth3.bmp";
-   char bitmap31[]="../../bitmaps/TriBox.bmp";
-   char bitmap32[]="../../bitmaps/NodeBox.bmp";
+   char bitmap0[]="/usr/local/include/bitmaps/HelpScreen.bmp";
+   char bitmap1[]="/usr/local/include/bitmaps/LightPos.bmp";
+   char bitmap2[]="/usr/local/include/bitmaps/buttonmask.bmp";
+   char bitmap3[]="/usr/local/include/bitmaps/button.bmp";
+   char bitmap4[]="/usr/local/include/bitmaps/WhiteBack.bmp";
+   char bitmap5[]="/usr/local/include/bitmaps/UpArrow.bmp";
+   char bitmap6[]="/usr/local/include/bitmaps/DownArrow.bmp";
+   char bitmap7[]="/usr/local/include/bitmaps/LightCol.bmp";
+   char bitmap8[]="/usr/local/include/bitmaps/MatCol.bmp";
+   char bitmap9[]="/usr/local/include/bitmaps/LogicBack.bmp";
+   char bitmap10[]="/usr/local/include/bitmaps/GreenCheck.bmp";
+   char bitmap11[]="/usr/local/include/bitmaps/RedCheck.bmp";
+   char bitmap12[]="/usr/local/include/bitmaps/TextMove1.bmp";
+   char bitmap13[]="/usr/local/include/bitmaps/LeftArrow.bmp";
+   char bitmap14[]="/usr/local/include/bitmaps/RightArrow.bmp";
+   char bitmap15[]="/usr/local/include/bitmaps/CurveMod.bmp";
+   char bitmap16[]="/usr/local/include/bitmaps/LegendBack.bmp";
+   char bitmap17[]="/usr/local/include/bitmaps/TextMove2.bmp";
+   char bitmap18[]="/usr/local/include/bitmaps/Earth1.bmp";
+   char bitmap19[]="/usr/local/include/bitmaps/Earth2.bmp";
+   char bitmap20[]="/usr/local/include/bitmaps/Earth3.bmp";
+   char bitmap31[]="/usr/local/include/bitmaps/TriBox.bmp";
+   char bitmap32[]="/usr/local/include/bitmaps/NodeBox.bmp";
 
    CreateTexture(gl_Texture,bitmap0,0);
    CreateTexture(gl_Texture,bitmap1,1);
