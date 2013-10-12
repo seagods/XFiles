@@ -86,6 +86,7 @@ Dvector::~Dvector(){
          V=NULL;
      }
      // length is garbage as soon as destructor called
+     delete length;
      length=NULL;
 }
 

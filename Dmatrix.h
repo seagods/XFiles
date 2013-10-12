@@ -16,6 +16,7 @@ class Dmatrix{
         void SetDims( int &,   int &);
         void SetMem( int &,  int &);
 
+
         int* GetRows() const;
         int* GetCols() const;
         double** GetM() const;
@@ -52,10 +53,15 @@ class Dmatrix{
         void SwapRows( int &,  int &);
         void SwapCols( int &,  int &);
 
-
         Dmatrix Transpose(const Dmatrix&);
 
-        
+
+        //first two integers are matrix row and column dimensions
+        void DivRow(int &, int &, int &, int &, int &, double &); //divide every element from istart to istop in row by same number
+        void DivCol(int &, int &, int &, int &, int &, double &); //divide every element from istart to istop in vol by same number
+
+        void SubRow(int &, int &, int &, int &, int &);
+
     private:
         int *rows;
         int *cols;
@@ -121,10 +127,11 @@ Dmatrix::~Dmatrix(){
          M=NULL;
      }
      // rows and cols are garbage as soon as destructor called
+     delete rows; delete cols;
      rows=NULL;
      cols=NULL;
 }
-
+//set the number of rows in M
 void Dmatrix::SetRows(  int &i){
    if(*rows != 0){ printf("SetRows: Array Rows Already Set!\n "); exit(1);}
         *rows=i;
@@ -136,6 +143,8 @@ void Dmatrix::SetRows(  int &i){
              else
                 {  printf("SetRows: M  already set!\n"); exit(1);}
              }
+
+//set the number of columns in M
 void Dmatrix::SetCols(  int &j){
    if(*cols != 0){printf( "SetCols: Array Cols Already Set!\n) ");  exit(1);}
         *cols=j;
@@ -582,6 +591,52 @@ Dmatrix Dmatrix::Transpose(const Dmatrix &A){
 
      return Temp;
 }
+
+
+void  Dmatrix::DivRow( int &nrows, int &ncols, int &idiv, int &istart, int &istop,  double &divide) {
+
+   if(M==NULL){ printf("NULL matrix sent to DivRow!\n"); exit(1);}
+   if( fabs(divide)==0.0 ){
+       cout << "division by zero in Dmatrix::Divrow\n"; exit(1); }
+   if( istop> *cols ){
+       cout << "Array Bound Error in Dmatrix::Divrow\n"; exit(1); }  
+//   no other safety belts yet
+     for(int k=istart; k<istop; k++){
+             *(*(M+idiv)+k) /= divide;
+             }
+    
+}
+void  Dmatrix::DivCol( int &nrows, int &ncols, int &idiv, int &istart, int &istop, double &divide) {
+
+  if(M==NULL){ printf("NULL matrix sent to DivCol!\n"); exit(1);}
+   if( fabs(divide)==0.0 ){
+       cout << "division by zero in Dmatrix::DivCol\n"; exit(1); }
+   if( istop> *rows ){
+       cout << "Array Bound Error in Dmatrix::DivCol\n"; exit(1); } 
+//   no other safety belts yet
+     for(int k=istart; k<istop; k++){
+             *(*(M+k)+idiv) /= divide;
+              }
+     
+}
+
+
+void  Dmatrix::SubRow( int &ncols, int &subrow, int &fromrow, int &substart, int &substop) {
+
+  if(M==NULL){ printf("NULL matrix sent to DivCol!\n"); exit(1);}
+   if( subrow> *rows ){
+       cout << "Array Bound Error in Dmatrix::SubRow\n"; exit(1); } 
+   if( fromrow> *rows ){
+       cout << "Array Bound Error in Dmatrix::SubRow\n"; exit(1); } 
+   if( substop> *cols ){
+       cout << "Array Bound Error in Dmatrix::SubRow\n"; exit(1); } 
+//   no other safety belts yet
+     for(int k=substart; k<substop; k++){
+             *(*(M+fromrow)+k)-=*(*(M+subrow)+k);
+              }
+
+}
+
 
 
 
