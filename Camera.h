@@ -206,12 +206,14 @@ CamView=CamView-iprime*4*speed;
       Dvector EDGE1(dim);
       Dvector EDGE2(dim);
       Dvector NORMAL(dim);
+
+      double** Matpp;
+      double* lhsV;
+      double* rhsV;
+
       double alpha, beta, gamma;
 
       double radius=100;
-      double maxerr;
-
-
 
       for(int i=0; i< 8*(MD+1); i++)
 	      CollideTri[i]=NULL;
@@ -261,7 +263,23 @@ CamView=CamView-iprime*4*speed;
 		Matrix.SetCol(EDGE2,q);
 		Matrix.SetCol(NORMAL,r); 
 
-                Solver(dim, maxerr, Matrix, RHS, LHS); 
+//                Solver now replaced by MyGaussElim in libmylib
+//                Solver(dim, maxerr, Matrix, RHS, LHS); 
+
+
+                int ierror=0;
+
+                double** Matpp;
+                double* lhsV;
+                double* rhsV;
+
+                Matpp=Matrix.GetM();
+                lhsV=LHS.GetV();
+                rhsV=RHS.GetV();
+                ierror=myGaussElim(dim, Matpp, rhsV, lhsV);
+                if(ierror !=0){
+                  cout << " myGaussElim Failed in Camera.h \n";
+                }
 
 		alpha=LHS(p); beta=LHS(q); gamma=LHS(r);
 		CheckPos=ORIG+EDGE1*alpha+EDGE2*beta+NORMAL*gamma;
@@ -645,7 +663,25 @@ void CCam::CamMove(double speed){
 		Matrix.SetCol(EDGE2,q);
 		Matrix.SetCol(NORMAL,r); 
 
-                Solver(dim, maxerr, Matrix, RHS, LHS); 
+
+                double** Matpp;
+                double* lhsV;
+                double* rhsV;
+
+
+                Matpp=Matrix.GetM();
+                lhsV=LHS.GetV();
+                rhsV=RHS.GetV();
+
+                int ierror=0;
+
+                ierror=myGaussElim(dim, Matpp, rhsV, lhsV);
+
+                if(ierror !=0){
+                  cout << " myGaussElim Failed in Camera.h \n";
+                }
+ //               Solver replaced by myGaussElim in libmylib
+ //               Solver(dim, maxerr, Matrix, RHS, LHS); 
 
 		alpha=LHS(p); beta=LHS(q); gamma=LHS(r);
 		CheckPos=ORIG+EDGE1*alpha+EDGE2*beta+NORMAL*gamma;
